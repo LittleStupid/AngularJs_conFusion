@@ -43,15 +43,14 @@
               </div>
             </div>
             <div class="col-xs-9 col-xs-offset-1">
-                <h3>Custom Comments</h3>
 
-                <div class="form-inline">
+                <div class="form-inline" role="form">
                   <div class="form-group">
-                    <label for="category">Sort by</label>
-                    <input type="text" class="form-control" id="category" ng-model="inputType">
+                    <strong>Custom Comments</strong>
+                      <label style="color:gray" for="category">Sort by</label>
+                      <input type="text" class="form-control" id="category" ng-model="inputType">
                   </div>
                 </div>
-
 
                 <ul class="media-list tab-pane fade in active">
                   <li class="media" ng-repeat="comment in detailCtrl.dish.comments | orderBy:inputType">
