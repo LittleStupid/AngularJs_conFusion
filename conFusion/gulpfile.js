@@ -29,7 +29,7 @@ gulp.task('clean', function() {
 
 // Default task
 gulp.task('default', ['clean'], function() {
-    gulp.start('usemin', 'imagemin','copyfonts');
+    gulp.start('usemin', 'viewmin', 'imagemin','copyfonts');
 });
 
 gulp.task('usemin',['jshint'], function () {
@@ -39,6 +39,11 @@ gulp.task('usemin',['jshint'], function () {
         js: [ngannotate(),uglify(),rev()]
       }))
       .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('viewmin',['jshint'], function () {
+  return gulp.src('./app/views/*.html')
+         .pipe(gulp.dest('dist/views/'));
 });
 
 // Images
@@ -60,6 +65,10 @@ gulp.task('copyfonts', ['clean'], function() {
 gulp.task('watch', ['browser-sync'], function() {
   // Watch .js files
   gulp.watch('{app/scripts/**/*.js,app/styles/**/*.css,app/**/*.html}', ['usemin']);
+
+  // Watch view html files
+  gulp.watch('{app/views/*.html}', ['viewmin']);
+
       // Watch image files
   gulp.watch('app/images/**/*', ['imagemin']);
 
