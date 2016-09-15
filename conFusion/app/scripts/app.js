@@ -80,7 +80,7 @@ app.controller('menuController', ['$scope', function($scope) {
     .controller('FeedbackController', ['$scope', function($scope) {
 
       $scope.sendFeedback = function() {
-        if ($scope.feedback.agree && ($scope.feedback.mychannel == "")&&
+        if ($scope.feedback.agree && ($scope.feedback.mychannel === "")&&
             !$scope.feedback.mychannel) {
               $scope.invalidChannelSelection = true;
                     console.log('incorrect');
@@ -149,7 +149,7 @@ app.controller('menuController', ['$scope', function($scope) {
     .controller('DishCommentController', ['$scope', function($scope) {
 
             //Step 1: Create a JavaScript object to hold the comment from the form
-            $scope.info = { firstName:"", lastName:"", comment:"", rating:5 }
+            $scope.info = { firstName:"", lastName:"", comment:"", rating:5 };
 
             $scope.submitComment = function () {
 
@@ -168,8 +168,8 @@ app.controller('menuController', ['$scope', function($scope) {
                 $scope.commentForm.$setPristine();
 
                 //Step 5: reset your JavaScript object that holds your comment
-                $scope.info = { firstName:"", lastName:"", comment:"", rating:5 }
-            }
+                $scope.info = { firstName:"", lastName:"", comment:"", rating:5 };
+            };
       }])
 
       ;
