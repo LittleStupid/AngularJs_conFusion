@@ -144,4 +144,32 @@ app.controller('menuController', ['$scope', function($scope) {
 
         $scope.dish = dish;
 
-    }]);
+    }])
+
+    .controller('DishCommentController', ['$scope', function($scope) {
+
+            //Step 1: Create a JavaScript object to hold the comment from the form
+            $scope.info = { firstName:"", lastName:"", comment:"", rating:5 }
+
+            $scope.submitComment = function () {
+
+                var theComment = {};
+                theComment.author = $scope.info.firstName + " " + $scope.info.lastName;
+                theComment.comment = $scope.info.comment;
+                theComment.rating = $scope.info.rating;
+
+                //Step 2: This is how you record the date
+                theComment.date = new Date().toISOString();
+
+                // Step 3: Push your comment into the dish's comment array
+                $scope.dish.comments.push(theComment);
+
+                //Step 4: reset your form to pristine
+                $scope.commentForm.$setPristine();
+
+                //Step 5: reset your JavaScript object that holds your comment
+                $scope.info = { firstName:"", lastName:"", comment:"", rating:5 }
+            }
+      }])
+
+      ;
