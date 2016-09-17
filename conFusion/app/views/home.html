@@ -7,9 +7,12 @@
                 <h3 align=center>Our Lipsmacking Culinary Creations</h3>
             </div>
             <div class="col-xs-12 col-sm-9 col-sm-pull-3">
-              <div class="media">
+              <div ng-if="!showCreation">
+                <h3>{{message}}</3>
+              </div>
+              <div class="media" ng-if="showCreation">
                 <div class="media-left">
-                  <a ui-sref="app.dishdetails({id: creation._id})">
+                  <a ui-sref="app.dishdetails({id: creation.id})">
                     <img class="media-object" ng-src={{creation.image}} alt="creation">
                   </a>
                 </div>
