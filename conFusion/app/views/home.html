@@ -16,7 +16,7 @@
                 <div class="media-body">
                   <h2 class="media-heading">{{creation.name}}
                     <span class="label label-danger label-xs">{{creation.label}}</span>
-                    <h6 class="label label-default label-xs">{{creation.price | currency}}</h6>
+                    <span class="badge">{{promotion.price | currency}}</span>
                   </h2>
                   <p>{{creation.description}}</p>
                 </div>
@@ -35,7 +35,7 @@
                 <div class="media-body">
                   <h2 class="media-heading">{{promotion.name}}
                     <span class="label label-danger label-xs">{{promotion.label}}</span>
-                    <h6 class="label label-default label-xs">{{promotion.price | currency}}</h6>
+                    <span class="badge">{{promotion.price | currency}}</span>
                   </h2>
                   <p>{{promotion.description}}</p>
                 </div>
