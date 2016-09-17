@@ -88,6 +88,7 @@ angular.module('confusionApp')
             .then(
               function(response) {
                 $scope.dish = response.data;
+                $scope.showDish = true;
               },
               function(response) {
                     $scope.message = "Error: "+response.status + " " + response.statusText;
